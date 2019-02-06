@@ -6,7 +6,7 @@ screenWidth = 500
 screenHeight = 400
 gravity = -0.5
 level = 1
-base_img_url = "/Users/jackhamby/games/bug_squasher/images/"
+base_img_url = os.path.dirname(os.path.realpath(__file__))
 
 
 # Acceleration
@@ -46,7 +46,7 @@ def get_image(path):
         global _image_library
         image = _image_library.get(path)
         if image == None:
-                image = pygame.image.load(base_img_url + path)
+                image = pygame.image.load(f'{base_img_url}/images/{path}')
                 _image_library[path] = image
         return image
 
